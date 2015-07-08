@@ -33,3 +33,4 @@ dist
 /src/main.js
 *.png
 /src/favicon.ico
+.jshintrc
