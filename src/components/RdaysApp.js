@@ -7,15 +7,12 @@ var ReactTransitionGroup = React.addons.TransitionGroup;
 require('normalize.css');
 require('../styles/main.css');
 
-var imageURL = require('../images/yeoman.png');
 
 var RdaysApp = React.createClass({
   render: function() {
     return (
       <div className="main">
-        <ReactTransitionGroup transitionName="fade">
-          <img src={imageURL} />
-        </ReactTransitionGroup>
+            <p>Some Text</p>
       </div>
     );
   }
