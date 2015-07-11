@@ -7,10 +7,21 @@ require('styles/Tasklist.sass');
 
 var Tasklist = React.createClass({
 
+    displayTasks: function() {
+        var tasks = [{summary: 'task1'}, {summary: 'task2'}];
+      var tasklist = [];
+        for (var i = 0; i < tasks.length; i++) {
+            tasklist.push(<p>{tasks[i].summary}</p>);
+        }
+        return tasklist;
+
+    },
+
+
   render: function () {
     return (
         <div className="Tasklist">
-          <p>Content for Tasklist</p>
+            { this.displayTasks() }
         </div>
       );
   }
