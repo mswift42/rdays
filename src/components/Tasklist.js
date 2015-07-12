@@ -4,26 +4,33 @@ var React = require('react/addons');
 
 
 require('styles/Tasklist.sass');
-
+require('./SingleTask');
 var Tasklist = React.createClass({
 
-    displayTasks: function() {
-        var tasks = [{summary: 'task1'}, {summary: 'task2'}];
-      var tasklist = [];
-        for (var i = 0; i < tasks.length; i++) {
-            tasklist.push(<p>{tasks[i].summary}</p>);
-        }
-        return tasklist;
-
+    taskList: function() {
+      return [{summary: 'task1'}, {summary: 'task2'}];
     },
 
+    getInitialState: function() {
+        return {
+            tasklist: [
+                {summary: 'task1'},
+                {summary: 'task2'}
+            ]
+        };
+    },
 
   render: function () {
     return (
-        <div className="Tasklist">
-            { this.displayTasks() }
-        </div>
-      );
+        (<div className="Tasklist">
+         {this.state.tasklist.map(function(task, i) {
+             return (
+                     <SingleTask key={i}>{task.summary}</SingleTask>
+             );
+         })}
+         </div>
+        )
+    );
   }
 });
 
