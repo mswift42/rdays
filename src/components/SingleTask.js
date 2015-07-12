@@ -10,7 +10,7 @@ var SingleTask = React.createClass({
   render: function () {
     return (
         <div className="SingleTask">
-          <p>Content for SingleTask</p>
+            <h3 className="tasksummary">{task.summary}</h3>
         </div>
       );
   }
