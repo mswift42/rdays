@@ -14,8 +14,12 @@ var path = {
   DEST: 'dist'
 };
 
-gulp.task('default', function() {
-  return gulp.src('template.jsx')
+gulp.task('transorm', function (){
+  gulp.src(path.JS)
     .pipe(react())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest(path.DEST_SRC));
+});
+gulp.task('copy', function() {
+  gulp.src(path.HTML)
+    .pipe(gulp.dest(path.DEST));
 });
