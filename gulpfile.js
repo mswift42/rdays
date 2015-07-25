@@ -23,3 +23,9 @@ gulp.task('copy', function() {
   gulp.src(path.HTML)
     .pipe(gulp.dest(path.DEST));
 });
+gulp.task('watch', function() {
+    gulp.watch(path.ALL, ['transorm', 'copy']);
+});
+
+gulp.task('default', ['watch']);
+
