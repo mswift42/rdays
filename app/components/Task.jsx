@@ -17,8 +17,8 @@ export default class Task extends React.Component {
     render() {
         const {value, onEdit, ...props} = this.props;
         const edited = this.state.edited;
-        return <div>{...props}
-        {edited ? this.renderEdit() : thir.renderValue()}
+        return <div {...props}>
+        {edited ? this.renderEdit() : this.renderValue()}
         </div>;
     }
     renderEdit() {
