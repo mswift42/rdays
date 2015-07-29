@@ -12,7 +12,7 @@ export default class Tasks extends React.Component {
 
     return <ul className='tasks'>{tasks.map(this.renderTask)}</ul>;
   }
-  renderNote(task, i) {
+  renderTask(task, i) {
     return (
       <li className='task' key={'task${i}'}>
         <Task value={task.summary} />
