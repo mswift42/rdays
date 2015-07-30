@@ -26,7 +26,7 @@ export default class App extends React.Component {
             );
         }
     itemEdited(i, summary) {
-        let notes = this.state.tasks;
+        let tasks = this.state.tasks;
         tasks[i].summary = summary;
         this.setState({
             tasks:tasks
