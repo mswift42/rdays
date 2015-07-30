@@ -35,12 +35,12 @@ export default class Task extends React.Component {
             edited:true
         });
     }
-    checkEnter() {
+    checkEnter(e) {
         if (e.key === 'Enter') {
             this.finishEdit(e);
         }
     }
-    finishEdit() {
+    finishEdit(e) {
         this.props.onEdit(e.target.value);
 
         this.setState({
