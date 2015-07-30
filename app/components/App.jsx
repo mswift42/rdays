@@ -20,10 +20,18 @@ export default class App extends React.Component {
             return (
                 <div>
                 <button onClick={this.addItem}>+</button>
-                <Tasks items={tasks} />
+                <Tasks items={tasks}
+                 onEdit={this.itemEdited}/>
                 </div>
             );
         }
+    itemEdited(i, summary) {
+        let notes = this.state.tasks;
+        tasks[i].summary = summary;
+        this.setState({
+            tasks:tasks
+        });
+    }
         addItem() {
             this.setState({
                 tasks: this.state.tasks.concat([{
