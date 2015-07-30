@@ -27,7 +27,11 @@ export default class App extends React.Component {
         }
     itemEdited(i, summary) {
         let tasks = this.state.tasks;
-        tasks[i].summary = summary;
+        if (summary) {
+            tasks[i].summary = summary;
+        } else {
+            tasks = tasks.slice(0,i).concat(tasks.slice(i+1));
+        }
         this.setState({
             tasks:tasks
         });
