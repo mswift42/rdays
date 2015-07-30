@@ -15,7 +15,8 @@ export default class Tasks extends React.Component {
   renderTask(task, i) {
     return (
       <li className='task' key={`task${i}`}>
-        <Task value={task.summary} />
+        <Task value={task.summary}
+          onEdit={this.props.onEdit.bind(null, i)}/>
       </li>
     );
   }
