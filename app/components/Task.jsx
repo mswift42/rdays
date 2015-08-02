@@ -25,7 +25,7 @@ export default class Task extends React.Component {
         return <input type='text'
         defaultValue={this.props.value}
         onBlur={this.finishEdit}
-        onKeyPress={this.checkEnter}/>;
+       onKeyPress={this.checkEnter}/>;
     }
     renderValue() {
         return <div onClick={this.edit}>{this.props.value}</div>;
