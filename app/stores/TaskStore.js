@@ -20,9 +20,9 @@ class TaskStore {
         tasks[targetId].summary = task.summary;
         this.setState({tasks});
     }
-    delete(task) {
+    delete(id) {
         const tasks = this.tasks;
-        const targetId = findIndex(tasks, 'id', task.id);
+        const targetId = findIndex(tasks, 'id', id);
         this.setState({
             tasks: tasks.slice(0, targetId).concat(tasks.slice(targetId+1))
         });
