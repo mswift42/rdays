@@ -5,7 +5,7 @@ import findIndex from '../libs/find_index';
 class TaskStore {
     constructor() {
         this.bindActions(TaskActions);
-        this.tasks = [];
+        this.tasks = this.tasks || [];
     }
     create(task) {
         const tasks = this.tasks;
