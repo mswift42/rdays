@@ -7,6 +7,9 @@ import TaskStore from '../stores/TaskStore';
 import connect from '../decorators/connect';
 
 export default class App extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
 
         return (
@@ -27,7 +30,7 @@ export default class App extends React.Component {
     addItem() {
         TaskActions.create({id: uuid.v4(), summary: 'New Task'});
     }
-    ItemEdited(id, summary) {
+    itemEdited(id, summary) {
         if(summary) {
             TaskActions.update({id, summary});
         } else {
