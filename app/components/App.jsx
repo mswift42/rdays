@@ -8,7 +8,6 @@ import connect from '../decorators/connect';
 
 export default class App extends React.Component {
     render() {
-        const tasks = this.state.tasks;
 
         return (
             <div>
