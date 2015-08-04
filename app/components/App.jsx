@@ -1,32 +1,26 @@
 import React from 'react';
 import Tasks from './Tasks';
 import uuid from 'node-uuid';
+import AltContainer from 'alt/AltContainer';
 import TaskActions from '../actions/TaskActions';
 import TaskStore from '../stores/TaskStore';
+import connect from '../decorators/connect';
 
 export default class App extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.storeChanged = this.storeChanged.bind(this);
-        this.state = TaskStore.getState();
-    }
-    componentDidMount() {
-        TaskStore.listen(this.storeChanged);
-    }
-    componentWillUnmount() {
-        TaskStore.unlisten(this.storeChanged);
-    }
-    storeChanged(state) {
-        this.setState(state);
-    }
     render() {
         const tasks = this.state.tasks;
 
         return (
             <div>
-                <button onClick={this.addItem}>+</button>
-                <Tasks items={tasks} onEdit={this.itemEdited} />
+            <button onClick={this.addItem}>+</button>
+            <AltContainer
+            stores={[TaskStore]}
+            inject={{
+                items: () => TaskStore.getState().tasks
+            }}
+            >
+            <Tasks onEdit={this.itemEdited} />
+            </AltContainer>
             </div>
         );
 
