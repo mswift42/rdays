@@ -15,14 +15,14 @@ class TaskStore {
     }
     update(task) {
         const tasks = this.tasks;
-        const targetId = findIndex(tasks, 'id', task.id);
+        const targetId = findIndex(tasks, (o) => o.id === task.id);
 
         tasks[targetId].summary = task.summary;
         this.setState({tasks});
     }
     delete(id) {
         const tasks = this.tasks;
-        const targetId = findIndex(tasks, 'id', id);
+        const targetId = findIndex(tasks, (o) => o.id === task.id);
         this.setState({
             tasks: tasks.slice(0, targetId).concat(tasks.slice(targetId+1))
         });
