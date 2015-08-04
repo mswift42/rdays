@@ -12,11 +12,11 @@ export default class Tasks extends React.Component {
 
     return <ul className='tasks'>{tasks.map(this.renderTask)}</ul>;
   }
-  renderTask(task, i) {
+  renderTask(task) {
     return (
-      <li className='task' key={`task${i}`}>
+      <li className='task' key={`task${task.id}`}>
         <Task value={task.summary}
-          onEdit={this.props.onEdit.bind(null, i)}/>
+          onEdit={this.props.onEdit.bind(null, task.id)}/>
       </li>
     );
   }
